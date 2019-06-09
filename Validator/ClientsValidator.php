@@ -2,7 +2,7 @@
 
 namespace Modules\ValidationClient\Validator;
 
-use App\Imports\ValidatorImport;
+use Modules\Portal\Imports\ValidatorImport;
 
 class ClientsValidator extends ValidatorImport
 {
