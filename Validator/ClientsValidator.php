@@ -2,7 +2,7 @@
 
 namespace Modules\ValidationClient\Validator;
 
-use Modules\Portal\Imports\ValidatorImport;
+use Modules\Portal\Imports\ValidatorImport; 
 
 class ClientsValidator extends ValidatorImport
 {
@@ -17,8 +17,8 @@ class ClientsValidator extends ValidatorImport
 			'nome_contato' 			=>	'nullable|string|max:255',
 			'nome_comprador' 		=>	'nullable|string|max:30',
 			'email' 				=>	'nullable|string|max:60|email',
-			'tel_1' 				=>	'nullable|string|max:15',
-			'tel_2' 				=>	'nullable|string|max:15',
+			'tel_1' 				=>	'nullable|string|max:14',
+			'tel_2' 				=>	'nullable|string|max:14',
 			'observacao' 			=>	'nullable|string',
 			'varejo' 				=>	'integer|between:0,1',
 			'logradouro' 			=>	'nullable|string|max:255',
@@ -30,6 +30,10 @@ class ClientsValidator extends ValidatorImport
 			'transportadora_id' 	=>	'nullable|integer|min:1',
 			'transportadora' 		=>	'nullable|string|max:255'		
 		];
+	}
+
+	protected function filters(){
+		$this->phoneFilter(['tel_1', 'tel_2']);
 	}
 
 }
