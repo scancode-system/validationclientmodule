@@ -7,33 +7,37 @@ use Modules\Portal\Imports\ValidatorImport;
 class ClientsValidator extends ValidatorImport
 {
 
+	protected $required = ['cpf_cnpj', 'razao_social'];
+
 	public function rule($data){
 		return [
 			'id_cliente' 			=>	'integer|min:1|unique_custom_values',
-			'nome_fantasia' 		=>	'nullable|string|max:255',
+			'nome_fantasia' 		=>	'string|max:255',
 			'razao_social' 			=>	'filled|string|max:255',
-			'cpf_cnpj' 				=>	'nullable|string|max:18|unique_custom_values',
-			'inscricao_estadual' 	=>	'nullable|string|max:100',
-			'nome_contato' 			=>	'nullable|string|max:255',
-			'nome_comprador' 		=>	'nullable|string|max:30',
-			'email' 				=>	'nullable|string|max:60|email',
-			'tel_1' 				=>	'nullable|string|max:14',
-			'tel_2' 				=>	'nullable|string|max:14',
-			'observacao' 			=>	'nullable|string',
+			'cpf_cnpj' 				=>	'string|max:18|unique_custom_values',
+			'inscricao_estadual' 	=>	'string|max:100',
+			'nome_contato' 			=>	'string|max:255',
+			'nome_comprador' 		=>	'string|max:30',
+			'email' 				=>	'string|max:60',
+			'tel_1' 				=>	'string|max:14',
+			'tel_2' 				=>	'string|max:14',
+			'observacao' 			=>	'string',
 			'varejo' 				=>	'integer|between:0,1',
-			'logradouro' 			=>	'nullable|string|max:255',
-			'bairro' 				=>	'nullable|string|max:255',
-			'cidade' 				=>	'nullable|string|max:255',
-			'uf' 					=>	'nullable|string|max:2',
-			'cep' 					=>	'nullable|string|max:10',
-			'cliente_status' 		=>	'nullable|string|max:255',
-			'transportadora_id' 	=>	'nullable|integer|min:1',
-			'transportadora' 		=>	'nullable|string|max:255'		
+			'logradouro' 			=>	'string|max:255',
+			'bairro' 				=>	'string|max:255',
+			'cidade' 				=>	'string|max:255',
+			'uf' 					=>	'string|max:2',
+			'cep' 					=>	'string|max:10',
+			'cliente_status' 		=>	'string|max:255',
+			'transportadora_codigo' =>	'string|max:255'		
 		];
 	}
 
 	protected function filters(){
 		$this->phoneFilter(['tel_1', 'tel_2']);
+		$this->lengthFilter(['email'], 60);
+		$this->lengthFilter(['uf'], 2);
+		$this->lengthFilter(['nome_comprador'], 30);
 	}
 
 }
