@@ -3,6 +3,8 @@
 namespace Modules\ValidationClient\Validator;
 
 use Modules\Portal\Imports\ValidatorImport; 
+use Illuminate\Validation\Rule;
+use Modules\Portal\Rules\NotInCustomRule;
 
 class ClientsValidator extends ValidatorImport
 {
@@ -11,10 +13,10 @@ class ClientsValidator extends ValidatorImport
 
 	public function rule($data){
 		return [
-			'id_cliente' 			=>	'integer|min:1|unique_custom_values',
+			'id_cliente' 			=>	['integer', 'min:1', new NotInCustomRule($this->chunkColumn('id_cliente', 0, $this->row_index-2), 'Duplicado')],
 			'nome_fantasia' 		=>	'string|max:255',
 			'razao_social' 			=>	'filled|string|max:255',
-			'cpf_cnpj' 				=>	'string|max:18|unique_custom_values',
+			'cpf_cnpj' 				=>	['string', 'max:18', new NotInCustomRule($this->chunkColumn('cpf_cnpj', 0, $this->row_index-2), 'Duplicado')],
 			'inscricao_estadual' 	=>	'string|max:100',
 			'nome_contato' 			=>	'string|max:255',
 			'nome_comprador' 		=>	'string|max:30',
@@ -38,6 +40,10 @@ class ClientsValidator extends ValidatorImport
 		$this->lengthFilter(['email'], 60);
 		$this->lengthFilter(['uf'], 2);
 		$this->lengthFilter(['nome_comprador'], 30);
+	}
+
+	public function messages(){
+		return  [];
 	}
 
 }
