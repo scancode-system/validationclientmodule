@@ -18,7 +18,7 @@ class InsertValidationClient extends Migration
                 'alias' => 'clientes',
                 'module_name' => 'ValidationClient',
                 'module_alias' => 'validationclient',
-                'video' => 'https://www.youtube.com/watch?v=sd5Rd4LRGgs&t=34s',
+                'video' => 'https://www.youtube.com/embed/zpOULjyy-n8?rel=0',
                 'file' => 'clientes.xlsx',
                 'validation' => 'clients', 
         ]);
