@@ -28,7 +28,7 @@ class ValidationClientServiceProvider extends ServiceProvider
     {
         $this->app->register(ViewComposerServiceProvider::class);
     }
-
+ 
     /**
      * Register config.
      *
