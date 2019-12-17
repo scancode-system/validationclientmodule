@@ -32,7 +32,9 @@ class ClientsValidator extends ValidatorImport
 		];
 	}
 
-
+public function messages(){
+		return  [];
+	}
 /*
 	protected $required = ['cpf_cnpj', 'razao_social'];
 
