@@ -13,9 +13,11 @@ class ClientsValidator extends ValidatorImport
 
 
 	public function rule($data){
-		return [
+
+
+		return  array_merge([
 			'id' =>	['integer', 'min:1', new NotInCustomRule($this->chunkColumn('id_cliente', 0, $this->row_index-2), 'Duplicado')],
-			'corporate_name' =>	['filled', 'string', 'max:255',new NotInCustomRule($this->chunkColumn('corporate_name', 0, $this->row_index-2), 'Duplicado')]
+			'corporate_name' =>	['filled', 'string', 'max:255',new NotInCustomRule($this->chunkColumn('corporate_name', 0, $this->row_index-2), 'Duplicado')],
 			'fantasy_name' => 'string|max:255',
 			'cpf_cnpj' => ['string', 'max:255', new NotInCustomRule($this->chunkColumn('cpf_cnpj', 0, $this->row_index-2), 'Duplicado')],
 			'buyer' => 'string|max:255',
@@ -26,10 +28,10 @@ class ClientsValidator extends ValidatorImport
 			'number' =>	'integer|min:0',
 			'apartment' => 'string|max:255',
 			'neighborhood' => 'string|max:255',
-			'city' => 'string|max:255',
+			'city' => 'string|max:255', 
 			'st' =>	'string|max:2',
 			'postcode' => 'string|max:8'
-		];
+		],parent::rule($data));
 	}
 
 public function messages(){

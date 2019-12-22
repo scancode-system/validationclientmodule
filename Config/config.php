@@ -2,7 +2,7 @@
 
 return [
 	'name' => 'ValidationClient', 
-	'fields' => ['id', 'corporate_name', 'fantasy_name', 'cpf_cnpj', 'buyer', 'email', 'phone', 'shipping_company_id', 'street', 'number', 'apartment', 'neighborhood', 'city', 'st', 'postcode'],
+	'fields' => ['id', 'corporate_name', 'fantasy_name', 'cpf_cnpj', 'buyer', 'email', 'phone', 'street', 'number', 'apartment', 'neighborhood', 'city', 'st', 'postcode'],
 	'sample' => [
 		[
 			'name' => 'id',
@@ -44,12 +44,6 @@ return [
 			'name' => 'phone',
 			'observation' => 'Telefone do cliente.',
 			'sample_1' => '(11)98306-2282',
-			'filled' => false
-		], 
-		[
-			'name' => 'shipping_company_id',
-			'observation' => 'Código da transportadora.',
-			'sample_1' => '12',
 			'filled' => false
 		], 
 		[
