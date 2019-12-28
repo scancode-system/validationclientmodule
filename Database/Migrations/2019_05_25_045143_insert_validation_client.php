@@ -21,6 +21,7 @@ class InsertValidationClient extends Migration
                 'video' => 'https://www.youtube.com/embed/zpOULjyy-n8?rel=0',
                 'file' => 'clientes.xlsx',
                 'validation' => 'clients', 
+                'import' => 'Client@import'
         ]);
     }
 
