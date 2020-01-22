@@ -18,13 +18,13 @@ return [
 		], 
 		[
 			'name' => 'fantasy_name',
-			'observation' => 'take studio desing',
+			'observation' => 'Inserir nome fantasia do cliente.',
 			'sample_1' => '1292',
 			'filled' => false
 		], 
 		[
 			'name' => 'cpf_cnpj',
-			'observation' => 'CPF caso seja pessoa física ou CNPJ para pessoa jurídica',
+			'observation' => 'CPF caso seja pessoa física, ou CNPJ caso seja pessoa jurídica',
 			'sample_1' => '23234543000123',
 			'filled' => false
 		], 
