@@ -17,7 +17,7 @@ class ClientsValidator extends ValidatorImport
 
 		return  array_merge([
 			'id' =>	['integer', 'min:1', new NotInCustomRule($this->chunkColumn('id', 0, $this->row_index-2), 'Duplicado')],
-			'corporate_name' =>	['filled', 'string', 'max:191',new NotInCustomRule($this->chunkColumn('corporate_name', 0, $this->row_index-2), 'Duplicado')],
+			'corporate_name' =>	['filled', 'string', 'max:191'],
 			'fantasy_name' => 'string|max:191',
 			'cpf_cnpj' => ['string', 'max:191', new NotInCustomRule($this->chunkColumn('cpf_cnpj', 0, $this->row_index-2), 'Duplicado')],
 			'buyer' => 'string|max:191',
