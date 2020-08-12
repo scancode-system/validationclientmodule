@@ -33,7 +33,9 @@ class InfoService extends InfoValidationService
 
 	public function modifiers()
 	{
-		return [];
+		return [
+			['rule' => ['postcode' => ['filled']], 'filter' => 'removeAlphaCharacter']
+		];
 	}
 
 	public function columnsFormat()
