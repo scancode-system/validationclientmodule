@@ -13,7 +13,7 @@ class InfoService extends InfoValidationService
 
 	public function rule($data, $index, $columns){
 		return  [
-			'id' =>	['integer', 'min:1', new NotInCustomRule(InfoValidationService::chunkColumn($columns, 'id', 0, $index-2), 'Duplicado')],
+			'id' =>	['nullable', 'integer', 'min:1', new NotInCustomRule(InfoValidationService::chunkColumn($columns, 'id', 0, $index-2), 'Duplicado')],
 			'corporate_name' =>	['filled', 'string', 'max:191'],
 			'fantasy_name' => 'nullable|string|max:191',
 			'cpf_cnpj' => ['nullable', 'string', 'max:191', new NotInCustomRule(InfoValidationService::chunkColumn($columns, 'cpf_cnpj', 0, $index-2), 'Duplicado')],
